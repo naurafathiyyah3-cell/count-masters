@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register - Count Masters</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page active">
+<h2>📝 Daftar Jadi Master</h2>
+<div class="card">
+<input id="regUser" placeholder="Username - contoh: master_01">
+<input id="regPass" type="password" placeholder="Password - minimal 4 karakter">
+<input id="regName" placeholder="Nama Lengkap">
+<button onclick="doRegister()">DAFTAR SEKARANG</button>
+<button class="secondary" onclick="go('login.html')">Sudah punya akun? Login</button>
+<button class="secondary" onclick="go('index.html')">← Kembali ke Home</button>
+<p id="regMsg" class="msg"></p>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
