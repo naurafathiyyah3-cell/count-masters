@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - Count Masters</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page active">
+<h2>Halo, <span id="dashName">Master</span>! 👋</h2>
+<p class="center">Username: <b id="dashUser">-</b> | 🏅 Rank: <b id="dashRank">Pemula</b></p>
+<div class="card">
+<div class="dash-grid">
+<div class="dash-box"><span>🏆</span><b id="dashHigh">0</b><small>Skor Tertinggi</small></div>
+<div class="dash-box"><span>🎮</span><b id="dashPlay">0</b><small>Total Main</small></div>
+<div class="dash-box"><span>📈</span><b id="dashLevel">1</b><small>Level Terakhir</small></div>
+<div class="dash-box"><span>🎯</span><b id="dashAccuracy">-</b><small>Akurasi Terakhir</small></div>
+</div>
+<h3>📜 Riwayat Bermain Terakhir</h3>
+<div id="dashHistory" class="history">Belum ada riwayat. Yuk main!</div>
+<button onclick="go('game.html')">🎮 MULAI BERMAIN</button>
+<button class="secondary" onclick="doLogout()">🚪 Logout</button>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
