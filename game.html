@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game - Count Masters</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page active">
+<header class="game-header">
+<div class="game-stat">⭐ Skor: <b id="score">0</b></div>
+<div class="game-stat">⏰ <b id="timer">30</b>s</div>
+<div class="game-stat">❤️ <span id="lives">❤️❤️❤️</span></div>
+<div class="game-stat">🎯 Level: <b id="level">1</b></div>
+</header>
+<h2 id="questionText">Hitung jumlah 🍎 di bawah ini!</h2>
+<div id="arena" class="arena"></div>
+<div id="options" class="options"></div>
+<p id="gameMsg" class="msg"></p>
+<button class="secondary" onclick="go('dashboard.html')">🏠 Kembali ke Dashboard</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
