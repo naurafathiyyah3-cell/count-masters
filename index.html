@@ -3,32 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Count Masters - Game Berhitung Seru</title>
-<link rel="stylesheet" href="style.css">
+<title>Count Masters - Game Berhitung</title>
+<style>
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:#4f46e5;min-height:100vh;display:flex;justify-content:center;padding:16px}
+.card{background:white;width:100%;max-width:520px;border-radius:20px;padding:24px;text-align:center;height:fit-content;margin-top:20px}
+h1{color:#4f46e5}
+.btn{width:100%;padding:14px;border:none;border-radius:12px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:10px}
+.btn-blue{background:#4f46e5;color:white}
+.btn-white{background:#eef2ff;color:#4f46e5}
+input{width:100%;padding:13px;margin-top:10px;border:2px solid #ddd;border-radius:10px;font-size:15px}
+.box{background:#eef2ff;padding:12px;border-radius:12px;margin-top:10px}
+#arena{font-size:55px;line-height:1.3;min-height:130px}
+.opt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.opt button{padding:16px;font-size:20px;font-weight:bold;border:none;border-radius:12px;background:#4f46e5;color:white;cursor:pointer}
+.hidden{display:none}
+</style>
 </head>
 <body>
-<div class="page active">
-<header class="logo">🔢 COUNT MASTERS</header>
-<p class="tagline">Seberapa cepat matamu menghitung? Buktikan kamu Master Berhitung!</p>
-<div class="card home-card">
-<h2>🎯 Cara Bermain</h2>
-<ol class="howto">
-<li>Daftar akun & login dulu.</li>
-<li>Lihat benda yang muncul di arena.</li>
-<li>Hitung jumlahnya, pilih jawaban yang benar.</li>
-<li>Benar = +100 poin & naik level. Salah = -1 nyawa.</li>
-<li>Kalahkan waktumu! Skor tertinggi tersimpan otomatis.</li>
-</ol>
-<div class="stats-preview">
-<div><span>⚡</span><b>30 Detik</b><small>per ronde</small></div>
-<div><span>❤️</span><b>3 Nyawa</b><small>jangan sampai habis</small></div>
-<div><span>🏆</span><b>∞ Level</b><small>makin sulit</small></div>
+<div class="card">
+<div id="page-home">
+<h1>🎯 COUNT MASTERS</h1>
+<p>Game Berhitung Seru!</p>
+<div class="box">🎯 <b>Cara Bermain</b><br><br>1. Daftar akun & login dulu.<br>2. Lihat benda yang muncul.<br>3. Hitung jumlahnya, pilih jawaban benar.<br>4. Benar = +100 poin. Salah = -1 nyawa.<br>5. Kamu punya 30 detik & 3 nyawa!</div>
+<button class="btn btn-blue" id="btn-daftar">📝 DAFTAR GRATIS</button>
+<button class="btn btn-white" id="btn-login">🔑 SUDAH PUNYA AKUN? LOGIN</button>
+<p style="font-size:12px;color:#888">Project 4 - X RPL 2</p>
 </div>
-<button onclick="go('register.html')">📝 DAFTAR GRATIS</button>
-<button class="secondary" onclick="go('login.html')">🔑 SUDAH PUNYA AKUN? LOGIN</button>
-<p class="small">Dibuat dengan HTML • CSS • JavaScript • Local Storage | Project 4 - X RPL 2</p>
+<div id="page-daftar" class="hidden">
+<h1>📝 Daftar</h1>
+<input id="reg-nama" placeholder="Nama Lengkap">
+<input id="reg-user" placeholder="Username">
+<input id="reg-pass" type="password" placeholder="Password">
+<button class="btn btn-blue" id="btn-do-daftar">DAFTAR SEKARANG</button>
+<button class="btn btn-white" id="btn-back1">⬅ Kembali</button>
+<p id="msg-daftar"></p>
+</div>
+<div id="page-login" class="hidden">
+<h1>🔑 Login</h1>
+<input id="log-user" placeholder="Username">
+<input id="log-pass" type="password" placeholder="Password">
+<button class="btn btn-blue" id="btn-do-login">LOGIN</button>
+<button class="btn btn-white" id="btn-back2">⬅ Kembali</button>
+<p id="msg-login"></p>
+</div>
+<div id="page-dash" class="hidden">
+<h1 id="hi-user">Halo!</h1>
+<p>Skor Tertinggi: <b id="best">0</b></p>
+<button class="btn btn-blue" id="btn-main">▶ MULAI BERMAIN</button>
+<button class="btn btn-white" id="btn-logout">Logout</button>
+</div>
+<div id="page-game" class="hidden">
+<h2>Level <span id="lvl">1</span> | Skor <span id="skor">0</span> | ❤️ <span id="nyawa">3</span> | ⏰ <span id="waktu">30</span></h2>
+<div id="arena">🍎🍎🍎</div>
+<p><b>Hitung ada berapa?</b></p>
+<div class="opt" id="pilihan"></div>
+<button class="btn btn-white" id="btn-stop">Berhenti</button>
 </div>
 </div>
-<script src="script.js"></script>
+<script>
+function show(id){
+  ['page-home','page-daftar','page-login','page-dash','page-game'].forEach(function(p){
+    document.getElementById(p).classList.add('hidden');
+  });
+  document.getElementById(id).classList.remove('hidden');
+}
+document.getElementById('btn-daftar').addEventListener('click', function(){ show('page-daftar'); });
+document.getElementById('btn-login').addEventListener('click', function(){ show('page-login'); });
+document.getElementById('btn-back1').addEventListener('click', function(){ show('page-home'); });
+document.getElementById('btn-back2').addEventListener('click', function(){ show('page-home'); });
+document.getElementById('btn-do-daftar').addEventListener('click', function(){
+  var nama=document.getElementById('reg-nama').value;
+  var user=document.getElementById('reg-user').value;
+  var pass=document.getElementById('reg-pass').value;
+  if(!nama||!user||!pass){ document.getElementById('msg-daftar').innerText='Isi semua dulu ya!'; return; }
+  localStorage.setItem('cm_user', user);
+  localStorage.setItem('cm_pass', pass);
+  localStorage.setItem('cm_nama', nama);
+  alert('Berhasil daftar! Silahkan login');
+  show('page-login');
+});
+document.getElementById('btn-do-login').addEventListener('click', function(){
+  var user=document.getElementById('log-user').value;
+  var pass=document.getElementById('log-pass').value;
+  if(user===localStorage.getItem('cm_user') && pass===localStorage.getItem('cm_pass')){
+    document.getElementById('hi-user').innerText='Halo, '+localStorage.getItem('cm_nama')+'!';
+    document.getElementById('best').innerText=localStorage.getItem('cm_best')||0;
+    show('page-dash');
+  } else {
+    document.getElementById('msg-login').innerText='Username / password salah! Daftar dulu ya.';
+  }
+});
+document.getElementById('btn-logout').addEventListener('click', function(){ show('page-home'); });
+var skor=0, lvl=1, nyawa=3, waktu=30, timer=null, jawaban=0;
+var emojis=['🍎','🍌','⭐','🍓','🐱','🍊','⚽','🍩'];
+document.getElementById('btn-main').addEventListener('click', function(){ mulaiGame(); });
+document.getElementById('btn-stop').addEventListener('click', function(){ clearInterval(timer); show('page-dash'); });
+function mulaiGame(){
+  skor=0; lvl=1; nyawa=3; waktu=30;
+  show('page-game');
+  soalBaru();
+  clearInterval(timer);
+  timer=setInterval(function(){
+    waktu--; document.getElementById('waktu').innerText=waktu;
+    if(waktu<=0){ gameOver(); }
+  },1000);
+}
+function soalBaru(){
+  document.getElementById('lvl').innerText=lvl;
+  document.getElementById('skor').innerText=skor;
+  document.getElementById('nyawa').innerText=nyawa;
+  waktu=30; document.getElementById('waktu').innerText=waktu;
+  var emoji=emojis[Math.floor(Math.random()*emojis.length)];
+  jawaban=Math.floor(Math.random()*5)+2+lvl;
+  if(jawaban>12) jawaban=12;
+  var html='';
+  for(var i=0;i<jawaban;i++){ html+=emoji+' '; }
+  document.getElementById('arena').innerText=html;
+  var opts=[jawaban];
+  while(opts.length<4){
+    var n=jawaban+Math.floor(Math.random()*5)-2;
+    if(n>0 && opts.indexOf(n)===-1) opts.push(n);
+  }
+  opts.sort(function(){return Math.random()-0.5});
+  var box=document.getElementById('pilihan'); box.innerHTML='';
+  opts.forEach(function(o){
+    var b=document.createElement('button'); b.innerText=o;
+    b.addEventListener('click', function(){ cekJawaban(o); });
+    box.appendChild(b);
+  });
+}
+function cekJawaban(pilih){
+  if(pilih===jawaban){
+    skor+=100; lvl++;
+    alert('BENAR! +100 poin 🎉');
+    soalBaru();
+  } else {
+    nyawa--; document.getElementById('nyawa').innerText=nyawa;
+    if(nyawa<=0){ gameOver(); } else { alert('SALAH! Sisa nyawa '+nyawa); }
+  }
+}
+function gameOver(){
+  clearInterval(timer);
+  var best=parseInt(localStorage.getItem('cm_best')||0);
+  if(skor>best){ localStorage.setItem('cm_best', skor); }
+  alert('Game Selesai! Skor kamu: '+skor);
+  document.getElementById('best').innerText=localStorage.getItem('cm_best');
+  show('page-dash');
+}
+</script>
 </body>
 </html>
