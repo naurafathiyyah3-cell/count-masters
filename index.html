@@ -3,153 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Count Masters - Game Berhitung</title>
+<title>Count Masters ✨</title>
 <style>
-*{box-sizing:border-box;font-family:Arial,sans-serif}
-body{margin:0;background:#4f46e5;min-height:100vh;display:flex;justify-content:center;padding:16px}
-.card{background:white;width:100%;max-width:520px;border-radius:20px;padding:24px;text-align:center;height:fit-content;margin-top:20px}
-h1{color:#4f46e5}
-.btn{width:100%;padding:14px;border:none;border-radius:12px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:10px}
-.btn-blue{background:#4f46e5;color:white}
-.btn-white{background:#eef2ff;color:#4f46e5}
-input{width:100%;padding:13px;margin-top:10px;border:2px solid #ddd;border-radius:10px;font-size:15px}
-.box{background:#eef2ff;padding:12px;border-radius:12px;margin-top:10px}
-#arena{font-size:55px;line-height:1.3;min-height:130px}
-.opt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.opt button{padding:16px;font-size:20px;font-weight:bold;border:none;border-radius:12px;background:#4f46e5;color:white;cursor:pointer}
+*{box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{margin:0;min-height:100vh;background:linear-gradient(135deg,#667eea,#764ba2,#f093fb);display:flex;justify-content:center;padding:14px}
+.card{background:white;width:100%;max-width:560px;border-radius:28px;padding:26px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.25);height:fit-content;margin-top:12px}
+.logo{font-size:42px}
+h1{margin:6px 0;color:#5b21b6}
+.sub{color:#666;margin-top:0}
+.btn{width:100%;padding:15px;border:none;border-radius:16px;font-size:16px;font-weight:800;cursor:pointer;margin-top:10px;transition:.2s}
+.btn:active{transform:scale(.97)}
+.btn-blue{background:linear-gradient(90deg,#6366f1,#a855f7);color:white;box-shadow:0 8px 20px rgba(99,102,241,.35)}
+.btn-pink{background:#fdf2f8;color:#be185d}
+.btn-white{background:#eef2ff;color:#4338ca}
+input{width:100%;padding:14px;margin-top:10px;border:2px solid #e5e7eb;border-radius:14px;font-size:15px;outline:none}
+input:focus{border-color:#8b5cf6}
+.box{background:linear-gradient(135deg,#eef2ff,#fdf2f8);padding:16px;border-radius:18px;margin-top:12px;text-align:left;line-height:1.7;font-size:14px}
+.pill{display:inline-block;background:#ddd6fe;color:#5b21b6;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;margin:3px}
+.stat{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 0}
+.stat div{background:#f5f3ff;padding:10px;border-radius:14px}
+.stat b{font-size:20px;color:#5b21b6}
+#arena{font-size:48px;line-height:1.25;min-height:150px;background:#fffbeb;border:2px dashed #fbbf24;border-radius:20px;padding:16px;margin-top:10px;word-break:break-all}
+.opt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.opt button{padding:18px;font-size:22px;font-weight:900;border:none;border-radius:16px;background:white;color:#5b21b6;cursor:pointer;box-shadow:0 4px 0 #ddd6fe}
+.opt button:active{transform:translateY(3px);box-shadow:none}
+.avatar{font-size:32px;padding:10px;border-radius:14px;cursor:pointer;border:2px solid transparent;background:#f5f3ff}
+.avatar.sel{border-color:#8b5cf6;background:#ede9fe;transform:scale(1.1)}
+.progress{height:10px;background:#eee;border-radius:999px;overflow:hidden;margin-top:8px}
+#bar{height:100%;background:linear-gradient(90deg,#22c55e,#f59e0b,#ef4444);width:100%;transition:.5s}
 .hidden{display:none}
+.combo{color:#db2777;font-weight:900}
+.badge{background:#fef3c7;color:#92400e;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800}
 </style>
 </head>
 <body>
 <div class="card">
+
 <div id="page-home">
-<h1>🎯 COUNT MASTERS</h1>
-<p>Game Berhitung Seru!</p>
-<div class="box">🎯 <b>Cara Bermain</b><br><br>1. Daftar akun & login dulu.<br>2. Lihat benda yang muncul.<br>3. Hitung jumlahnya, pilih jawaban benar.<br>4. Benar = +100 poin. Salah = -1 nyawa.<br>5. Kamu punya 30 detik & 3 nyawa!</div>
-<button class="btn btn-blue" id="btn-daftar">📝 DAFTAR GRATIS</button>
+<div class="logo">🎯✨🧮</div>
+<h1>COUNT MASTERS</h1>
+<p class="sub">Asah Otakmu! Seberapa Cepat Kamu Menghitung?</p>
+<div>
+<span class="pill">🔥 100+ Pemain</span><span class="pill">⭐ Level Tanpa Batas</span><span class="pill">🏆 Leaderboard</span>
+</div>
+<div class="box">🎮 <b>CARA BERMAIN</b><br>
+1. Daftar & pilih avatar favoritmu<br>
+2. Lihat benda yang muncul di kotak<br>
+3. Hitung secepat mungkin!<br>
+4. Benar = <b>+100 poin + combo 🔥</b><br>
+5. Salah = <b>-1 nyawa ❤️</b><br>
+6. Habiskan waktu 30 detik per soal!<br><br>
+🏆 <b>Naik Level = Soal Makin Banyak!</b></div>
+<button class="btn btn-blue" id="btn-daftar">🚀 DAFTAR GRATIS - MAIN SEKARANG</button>
 <button class="btn btn-white" id="btn-login">🔑 SUDAH PUNYA AKUN? LOGIN</button>
-<p style="font-size:12px;color:#888">Project 4 - X RPL 2</p>
+<p style="font-size:11px;color:#999">Project 4 • X RPL 2 • Naura Fathiyyah</p>
 </div>
+
 <div id="page-daftar" class="hidden">
-<h1>📝 Daftar</h1>
-<input id="reg-nama" placeholder="Nama Lengkap">
-<input id="reg-user" placeholder="Username">
-<input id="reg-pass" type="password" placeholder="Password">
-<button class="btn btn-blue" id="btn-do-daftar">DAFTAR SEKARANG</button>
-<button class="btn btn-white" id="btn-back1">⬅ Kembali</button>
-<p id="msg-daftar"></p>
+<h1>✨ Daftar Yuk!</h1>
+<p class="sub">Bikin akun biar skor kamu tersimpan</p>
+<p style="margin:8px 0">Pilih Avatar:</p>
+<div>
+<span class="avatar sel" data-av="🐱">🐱</span><span class="avatar" data-av="🐶">🐶</span><span class="avatar" data-av="🐰">🐰</span><span class="avatar" data-av="🦊">🦊</span><span class="avatar" data-av="🐼">🐼</span><span class="avatar" data-av="🦄">🦄</span>
 </div>
+<input id="reg-nama" placeholder="Nama Lengkap Kamu">
+<input id="reg-user" placeholder="Buat Username (misal: naura123)">
+<input id="reg-pass" type="password" placeholder="Buat Password">
+<button class="btn btn-blue" id="btn-do-daftar">✅ BUAT AKUN</button>
+<button class="btn btn-white" id="btn-back1">⬅ Kembali</button>
+<p id="msg-daftar" style="color:#dc2626"></p>
+</div>
+
 <div id="page-login" class="hidden">
-<h1>🔑 Login</h1>
+<div style="font-size:40px">🔑</div>
+<h1>Selamat Datang Lagi!</h1>
 <input id="log-user" placeholder="Username">
 <input id="log-pass" type="password" placeholder="Password">
-<button class="btn btn-blue" id="btn-do-login">LOGIN</button>
+<button class="btn btn-blue" id="btn-do-login">LOGIN & MAIN 🚀</button>
 <button class="btn btn-white" id="btn-back2">⬅ Kembali</button>
-<p id="msg-login"></p>
+<p id="msg-login" style="color:#dc2626"></p>
 </div>
+
 <div id="page-dash" class="hidden">
+<div id="dash-av" style="font-size:55px">🐱</div>
 <h1 id="hi-user">Halo!</h1>
-<p>Skor Tertinggi: <b id="best">0</b></p>
-<button class="btn btn-blue" id="btn-main">▶ MULAI BERMAIN</button>
+<span class="badge" id="rank">🥉 Pemula</span>
+<div class="stat">
+<div>🏆 Skor<br><b id="best">0</b></div>
+<div>🔥 Level<br><b id="best-lvl">1</b></div>
+<div>🎯 Main<br><b id="total-main">0</b> kali</div>
+</div>
+<div class="box"><b>🏆 TOP SKOR:</b><br><span id="leader">Belum ada skor</span></div>
+<button class="btn btn-blue" id="btn-main">▶️ MULAI BERMAIN</button>
+<button class="btn btn-pink" id="btn-cepat">⚡ MODE CEPAT (15 detik)</button>
 <button class="btn btn-white" id="btn-logout">Logout</button>
 </div>
+
 <div id="page-game" class="hidden">
-<h2>Level <span id="lvl">1</span> | Skor <span id="skor">0</span> | ❤️ <span id="nyawa">3</span> | ⏰ <span id="waktu">30</span></h2>
+<div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700"><span>Level <span id="lvl">1</span></span><span class="combo" id="combo-txt"></span><span>❤️ <span id="nyawa">3</span></span></div>
+<div class="stat" style="margin:8px 0"><div>Skor<br><b id="skor">0</b></div><div>⏰ Waktu<br><b id="waktu">30</b></div><div>🎯 Benar<br><b id="benar">0</b></div></div>
+<div class="progress"><div id="bar"></div></div>
 <div id="arena">🍎🍎🍎</div>
-<p><b>Hitung ada berapa?</b></p>
+<p><b>Hitung ada berapa <span id="tanya-emoji">🍎</span> ?</b></p>
 <div class="opt" id="pilihan"></div>
-<button class="btn btn-white" id="btn-stop">Berhenti</button>
+<button class="btn btn-white" id="btn-stop">⏹ Berhenti</button>
 </div>
+
 </div>
 <script>
+let selAv='🐱';
 function show(id){
-  ['page-home','page-daftar','page-login','page-dash','page-game'].forEach(function(p){
-    document.getElementById(p).classList.add('hidden');
-  });
+  ['page-home','page-daftar','page-login','page-dash','page-game'].forEach(p=>document.getElementById(p).classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
 }
-document.getElementById('btn-daftar').addEventListener('click', function(){ show('page-daftar'); });
-document.getElementById('btn-login').addEventListener('click', function(){ show('page-login'); });
-document.getElementById('btn-back1').addEventListener('click', function(){ show('page-home'); });
-document.getElementById('btn-back2').addEventListener('click', function(){ show('page-home'); });
-document.getElementById('btn-do-daftar').addEventListener('click', function(){
-  var nama=document.getElementById('reg-nama').value;
-  var user=document.getElementById('reg-user').value;
-  var pass=document.getElementById('reg-pass').value;
+document.querySelectorAll('.avatar').forEach(a=>a.addEventListener('click',()=>{
+  document.querySelectorAll('.avatar').forEach(x=>x.classList.remove('sel')); a.classList.add('sel'); selAv=a.dataset.av;
+}));
+function playBeep(ok){ try{ let c=new (window.AudioContext||window.webkitAudioContext)(); let o=c.createOscillator(); o.frequency.value=ok?880:200; o.connect(c.destination); o.start(); setTimeout(()=>o.stop(),150);}catch(e){} }
+document.getElementById('btn-daftar').addEventListener('click',()=>show('page-daftar'));
+document.getElementById('btn-login').addEventListener('click',()=>show('page-login'));
+document.getElementById('btn-back1').addEventListener('click',()=>show('page-home'));
+document.getElementById('btn-back2').addEventListener('click',()=>show('page-home'));
+document.getElementById('btn-do-daftar').addEventListener('click',()=>{
+  let nama=document.getElementById('reg-nama').value.trim(), user=document.getElementById('reg-user').value.trim(), pass=document.getElementById('reg-pass').value;
   if(!nama||!user||!pass){ document.getElementById('msg-daftar').innerText='Isi semua dulu ya!'; return; }
-  localStorage.setItem('cm_user', user);
-  localStorage.setItem('cm_pass', pass);
-  localStorage.setItem('cm_nama', nama);
-  alert('Berhasil daftar! Silahkan login');
-  show('page-login');
+  localStorage.setItem('cm_user',user); localStorage.setItem('cm_pass',pass); localStorage.setItem('cm_nama',nama); localStorage.setItem('cm_av',selAv);
+  alert('Yeay! Akun berhasil dibuat ✨ Silahkan login'); show('page-login');
 });
-document.getElementById('btn-do-login').addEventListener('click', function(){
-  var user=document.getElementById('log-user').value;
-  var pass=document.getElementById('log-pass').value;
+document.getElementById('btn-do-login').addEventListener('click',()=>{
+  let user=document.getElementById('log-user').value, pass=document.getElementById('log-pass').value;
   if(user===localStorage.getItem('cm_user') && pass===localStorage.getItem('cm_pass')){
     document.getElementById('hi-user').innerText='Halo, '+localStorage.getItem('cm_nama')+'!';
-    document.getElementById('best').innerText=localStorage.getItem('cm_best')||0;
-    show('page-dash');
-  } else {
-    document.getElementById('msg-login').innerText='Username / password salah! Daftar dulu ya.';
-  }
+    document.getElementById('dash-av').innerText=localStorage.getItem('cm_av')||'🐱';
+    updateDash(); show('page-dash');
+  } else document.getElementById('msg-login').innerText='Username / password salah! Daftar dulu ya.';
 });
-document.getElementById('btn-logout').addEventListener('click', function(){ show('page-home'); });
-var skor=0, lvl=1, nyawa=3, waktu=30, timer=null, jawaban=0;
-var emojis=['🍎','🍌','⭐','🍓','🐱','🍊','⚽','🍩'];
-document.getElementById('btn-main').addEventListener('click', function(){ mulaiGame(); });
-document.getElementById('btn-stop').addEventListener('click', function(){ clearInterval(timer); show('page-dash'); });
-function mulaiGame(){
-  skor=0; lvl=1; nyawa=3; waktu=30;
-  show('page-game');
-  soalBaru();
-  clearInterval(timer);
-  timer=setInterval(function(){
-    waktu--; document.getElementById('waktu').innerText=waktu;
-    if(waktu<=0){ gameOver(); }
-  },1000);
+function updateDash(){
+  let best=localStorage.getItem('cm_best')||0, lvl=localStorage.getItem('cm_bestlvl')||1, total=localStorage.getItem('cm_total')||0;
+  document.getElementById('best').innerText=best; document.getElementById('best-lvl').innerText=lvl; document.getElementById('total-main').innerText=total;
+  document.getElementById('leader').innerText=(localStorage.getItem('cm_av')||'🐱')+' '+(localStorage.getItem('cm_nama')||'')+' - '+best+' poin';
+  let r='🥉 Pemula'; if(best>=1000) r='🥈 Pro Player'; if(best>=3000) r='🥇 MASTER'; if(best>=5000) r='👑 LEGEND'; document.getElementById('rank').innerText=r;
 }
+document.getElementById('btn-logout').addEventListener('click',()=>show('page-home'));
+let skor=0,lvl=1,nyawa=3,waktu=30,maxWaktu=30,timer=null,jawaban=0,benar=0,combo=0,curEmoji='🍎';
+let emojis=['🍎','🍌','⭐','🍓','🐱','🍊','⚽','🍩','🍇','🐶','🦋','🍕'];
+document.getElementById('btn-main').addEventListener('click',()=>mulaiGame(30));
+document.getElementById('btn-cepat').addEventListener('click',()=>mulaiGame(15));
+document.getElementById('btn-stop').addEventListener('click',()=>{clearInterval(timer); updateDash(); show('page-dash');});
+function mulaiGame(w){ skor=0;lvl=1;nyawa=3;benar=0;combo=0;maxWaktu=w; show('page-game'); soalBaru(); clearInterval(timer); timer=setInterval(()=>{ waktu--; document.getElementById('waktu').innerText=waktu; document.getElementById('bar').style.width=(waktu/maxWaktu*100)+'%'; if(waktu<=0) gameOver(); },1000); }
 function soalBaru(){
-  document.getElementById('lvl').innerText=lvl;
-  document.getElementById('skor').innerText=skor;
-  document.getElementById('nyawa').innerText=nyawa;
-  waktu=30; document.getElementById('waktu').innerText=waktu;
-  var emoji=emojis[Math.floor(Math.random()*emojis.length)];
-  jawaban=Math.floor(Math.random()*5)+2+lvl;
-  if(jawaban>12) jawaban=12;
-  var html='';
-  for(var i=0;i<jawaban;i++){ html+=emoji+' '; }
-  document.getElementById('arena').innerText=html;
-  var opts=[jawaban];
-  while(opts.length<4){
-    var n=jawaban+Math.floor(Math.random()*5)-2;
-    if(n>0 && opts.indexOf(n)===-1) opts.push(n);
-  }
-  opts.sort(function(){return Math.random()-0.5});
-  var box=document.getElementById('pilihan'); box.innerHTML='';
-  opts.forEach(function(o){
-    var b=document.createElement('button'); b.innerText=o;
-    b.addEventListener('click', function(){ cekJawaban(o); });
-    box.appendChild(b);
-  });
+  document.getElementById('lvl').innerText=lvl; document.getElementById('skor').innerText=skor; document.getElementById('nyawa').innerText=nyawa; document.getElementById('benar').innerText=benar; document.getElementById('combo-txt').innerText=combo>=2?'🔥 Combo x'+combo:'';
+  waktu=maxWaktu; document.getElementById('waktu').innerText=waktu; document.getElementById('bar').style.width='100%';
+  curEmoji=emojis[Math.floor(Math.random()*emojis.length)]; document.getElementById('tanya-emoji').innerText=curEmoji;
+  jawaban=Math.floor(Math.random()*4)+2+lvl; if(jawaban>15) jawaban=15;
+  let html=''; for(let i=0;i<jawaban;i++) html+=curEmoji+' '; document.getElementById('arena').innerText=html;
+  let opts=[jawaban]; while(opts.length<4){ let n=jawaban+Math.floor(Math.random()*5)-2; if(n>0 && !opts.includes(n)) opts.push(n); }
+  opts.sort(()=>Math.random()-0.5); let box=document.getElementById('pilihan'); box.innerHTML='';
+  opts.forEach(o=>{ let b=document.createElement('button'); b.innerText=o; b.addEventListener('click',()=>cekJawaban(o)); box.appendChild(b); });
 }
-function cekJawaban(pilih){
-  if(pilih===jawaban){
-    skor+=100; lvl++;
-    alert('BENAR! +100 poin 🎉');
-    soalBaru();
-  } else {
-    nyawa--; document.getElementById('nyawa').innerText=nyawa;
-    if(nyawa<=0){ gameOver(); } else { alert('SALAH! Sisa nyawa '+nyawa); }
-  }
+function cekJawaban(p){
+  if(p===jawaban){ combo++; benar++; let poin=100+(combo>=2?50*combo:0); skor+=poin; lvl++; playBeep(true); soalBaru(); }
+  else { combo=0; nyawa--; playBeep(false); document.getElementById('nyawa').innerText=nyawa; if(nyawa<=0) gameOver(); else alert('Yah salah! Sisa nyawa '+nyawa+' ❤️'); }
 }
 function gameOver(){
   clearInterval(timer);
-  var best=parseInt(localStorage.getItem('cm_best')||0);
-  if(skor>best){ localStorage.setItem('cm_best', skor); }
-  alert('Game Selesai! Skor kamu: '+skor);
-  document.getElementById('best').innerText=localStorage.getItem('cm_best');
-  show('page-dash');
+  let best=parseInt(localStorage.getItem('cm_best')||0); if(skor>best){ localStorage.setItem('cm_best',skor); localStorage.setItem('cm_bestlvl',lvl); }
+  localStorage.setItem('cm_total', parseInt(localStorage.getItem('cm_total')||0)+1);
+  alert('🎮 Game Selesai!\nSkor: '+skor+'\nBenar: '+benar+'\nLevel: '+lvl);
+  updateDash(); show('page-dash');
 }
 </script>
 </body>
